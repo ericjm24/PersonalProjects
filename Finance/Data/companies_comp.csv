@@ -115,6 +115,7 @@ AWR,American States Water Company,Public Utilities,Water Supply,nyse
 AMT,American Tower Corporation (REIT),Consumer Services,Real Estate Investment Trusts,nyse
 AVD,American Vanguard Corporation,Basic Industries,Agricultural Chemicals,nyse
 AWK,American Water Works,Public Utilities,Water Supply,nyse
+COLD,Americold Realty Trust,Consumer Services,Real Estate Investment Trusts,nyse
 APU,"AmeriGas Partners, L.P.",Consumer Services,Other Specialty Stores,nyse
 AMP,"AMERIPRISE FINANCIAL SERVICES, INC.",Finance,Investment Managers,nyse
 ABC,AmerisourceBergen Corporation (Holding Co),Health Care,Other Pharmaceuticals,nyse
@@ -125,8 +126,12 @@ AP,Ampco-Pittsburgh Corporation,Capital Goods,Fluid Controls,nyse
 APH,Amphenol Corporation,Capital Goods,Electrical Products,nyse
 AXR,AMREP Corporation,Consumer Services,Newspapers/Magazines,nyse
 AME,"AMTEK, Inc.",Consumer Durables,Metal Fabrications,nyse
+PLAN,"Anaplan, Inc.",Technology,Computer Software: Prepackaged Software,nyse
+FINS,Angel Oak Financial Strategies Income Term Trust,,,nyse
 AU,AngloGold Ashanti Limited,Basic Industries,Precious Metals,nyse
+BUD,Anheuser-Busch Inbev SA,Consumer Non-Durables,Beverages (Production/Distribution),nyse
 AXE,Anixter International Inc.,Consumer Non-Durables,Telecommunications Equipment,nyse
+NLY,Annaly Capital Management Inc,Consumer Services,Real Estate Investment Trusts,nyse
 AM,Antero Midstream Corporation,Public Utilities,Natural Gas Distribution,nyse
 AR,Antero Resources Corporation,Energy,Oil & Gas Production,nyse
 ANTM,"Anthem, Inc.",Health Care,Medical Specialities,nyse
@@ -144,15 +149,19 @@ APLE,"Apple Hospitality REIT, Inc.",Consumer Services,Real Estate Investment Tru
 AIT,"Applied Industrial Technologies, Inc.",Consumer Durables,Industrial Specialties,nyse
 ATR,"AptarGroup, Inc.",Consumer Non-Durables,Plastic Products,nyse
 APTV,Aptiv PLC,Capital Goods,Auto Parts:O.E.M.,nyse
+WTR,"Aqua America, Inc.",Public Utilities,Water Supply,nyse
 AQ,Aquantia Corp.,Technology,Semiconductors,nyse
+WAAS,AquaVenture Holdings Limited,Public Utilities,Water Supply,nyse
 ARMK,Aramark,Consumer Services,Restaurants,nyse
 ABR,Arbor Realty Trust,Consumer Services,Real Estate Investment Trusts,nyse
 ARC,"ARC Document Solutions, Inc.",Consumer Services,Professional Services,nyse
+MT,ArcelorMittal,Basic Industries,Steel/Iron Ore,nyse
 ARCH,"Arch Coal, Inc.",Energy,Coal Mining,nyse
 ADM,Archer-Daniels-Midland Company,Consumer Non-Durables,Packaged Foods,nyse
 AROC,"Archrock, Inc.",Public Utilities,Natural Gas Distribution,nyse
 ARNC,Arconic Inc.,Capital Goods,Metal Fabrications,nyse
 ARCO,Arcos Dorados Holdings Inc.,Consumer Services,Restaurants,nyse
+RCUS,"Arcus Biosciences, Inc.",Health Care,Major Pharmaceuticals,nyse
 ARD,Ardagh Group S.A.,Consumer Durables,Containers/Packaging,nyse
 ASC,Ardmore Shipping Corporation,Transportation,Marine Transportation,nyse
 AFC,Ares Capital Corporation,,,nyse
@@ -188,6 +197,10 @@ AIZ,"Assurant, Inc.",Finance,Accident &Health Insurance,nyse
 AIZP,"Assurant, Inc.",Finance,Accident &Health Insurance,nyse
 AGO,Assured Guaranty Ltd.,Finance,Property-Casualty Insurers,nyse
 AZN,Astrazeneca PLC,Health Care,Major Pharmaceuticals,nyse
+HOME,At Home Group Inc.,Consumer Services,Home Furnishings,nyse
+T,AT&T Inc.,Public Utilities,Telecommunications Equipment,nyse
+TBB,AT&T Inc.,Public Utilities,Telecommunications Equipment,nyse
+TBC,AT&T Inc.,Public Utilities,Telecommunications Equipment,nyse
 ATTO,Atento S.A.,Public Utilities,Telecommunications Equipment,nyse
 ATH,Athene Holding Ltd.,Finance,Life Insurance,nyse
 ATKR,Atkore International Group Inc.,Miscellaneous,Industrial Machinery/Components,nyse
@@ -209,6 +222,7 @@ AVH,Avianca Holdings S.A.,Transportation,Air Freight/Delivery Services,nyse
 AVA,Avista Corporation,Public Utilities,Power Generation,nyse
 AVP,"Avon Products, Inc.",Consumer Non-Durables,Package Goods/Cosmetics,nyse
 AVX,AVX Corporation,Capital Goods,Electrical Products,nyse
+EQH,"AXA Equitable Holdings, Inc.",Finance,Specialty Insurers,nyse
 AXTA,Axalta Coating Systems Ltd.,Basic Industries,Paints/Coatings,nyse
 AXS,Axis Capital Holdings Limited,Finance,Property-Casualty Insurers,nyse
 AX,"Axos Financial, Inc.",Finance,Savings Institutions,nyse
@@ -216,11 +230,87 @@ AXO,"Axos Financial, Inc.",Finance,Savings Institutions,nyse
 AZUL,Azul S.A.,Transportation,Air Freight/Delivery Services,nyse
 AZRE,Azure Power Global Limited,Public Utilities,Electric Utilities: Central,nyse
 AZZ,AZZ Inc.,Consumer Durables,Building Products,nyse
+BGS,"B&G Foods, Inc.",Consumer Non-Durables,Packaged Foods,nyse
+BW,Babcock,Capital Goods,Building Products,nyse
+BGH,Babson Global Short Duration High Yield Fund,,,nyse
+BMI,"Badger Meter, Inc.",Capital Goods,Industrial Machinery/Components,nyse
+BHGE,"Baker Hughes, a GE company",Energy,Metal Fabrications,nyse
+BBN,BalckRock Taxable Municipal Bond Trust,,,nyse
+BLL,Ball Corporation,Consumer Durables,Containers/Packaging,nyse
 BANC,"Banc of California, Inc.",Finance,Major Banks,nyse
+BBVA,Banco Bilbao Viscaya Argentaria S.A.,Finance,Commercial Banks,nyse
+BBD,Banco Bradesco Sa,Finance,Major Banks,nyse
+BBDO,Banco Bradesco Sa,Finance,Major Banks,nyse
+BCH,Banco De Chile,Finance,Commercial Banks,nyse
+BLX,"Banco Latinoamericano de Comercio Exterior, S.A.",Finance,Commercial Banks,nyse
+BSBR,Banco Santander Brasil SA,Finance,Commercial Banks,nyse
+BSAC,Banco Santander Chile,Finance,Commercial Banks,nyse
+BSMX,"Banco Santander Mexico, S.A., Institucion de Ban",Finance,Commercial Banks,nyse
+SAN,"Banco Santander, S.A.",Finance,Commercial Banks,nyse
+CIB,BanColombia S.A.,Finance,Commercial Banks,nyse
+BXS,BancorpSouth Bank,,,nyse
 BAC,Bank of America Corporation,Finance,Major Banks,nyse
+BOH,Bank of Hawaii Corporation,Finance,Major Banks,nyse
+BMO,Bank Of Montreal,Finance,Commercial Banks,nyse
+NTB,Bank of N.T. Butterfield & Son Limited (The),Finance,Commercial Banks,nyse
+BK,Bank Of New York Mellon Corporation (The),Finance,Major Banks,nyse
+BNS,Bank of Nova Scotia (The),Finance,Major Banks,nyse
+BKU,"BankUnited, Inc.",Finance,Savings Institutions,nyse
+BCS,Barclays PLC,Finance,Commercial Banks,nyse
+BBDC,"Barings BDC, Inc.",,,nyse
+MCI,Barings Corporate Investors,,,nyse
+MPV,Barings Participation Investors,Consumer Services,Miscellaneous,nyse
+BNED,"Barnes & Noble Education, Inc",Consumer Services,Other Specialty Stores,nyse
 B,"Barnes Group, Inc.",Capital Goods,Metal Fabrications,nyse
+GOLD,Barrick Gold Corporation,Basic Industries,Precious Metals,nyse
 BAS,"Basic Energy Services, Inc.",Energy,Oilfield Services/Equipment,nyse
+BHC,Bausch Health Companies Inc.,Health Care,Major Pharmaceuticals,nyse
+BAX,Baxter International Inc.,Health Care,Medical/Dental Instruments,nyse
+BTE,Baytex Energy Corp,Energy,Oil & Gas Production,nyse
+BBT,BB&T Corporation,Finance,Major Banks,nyse
+BBAR,BBVA Banco Frances S.A.,Finance,Commercial Banks,nyse
+BBX,BBX Capital Corporation,Finance,Real Estate,nyse
+BCE,"BCE, Inc.",Public Utilities,Telecommunications Equipment,nyse
+BZH,"Beazer Homes USA, Inc.",Capital Goods,Homebuilding,nyse
+BDX,"Becton, Dickinson and Company",Health Care,Medical/Dental Instruments,nyse
+BDXA,"Becton, Dickinson and Company",Health Care,Medical/Dental Instruments,nyse
+BDC,Belden Inc,Basic Industries,Telecommunications Equipment,nyse
+BHE,"Benchmark Electronics, Inc.",Technology,Electrical Products,nyse
+BHLB,"Berkshire Hills Bancorp, Inc.",Finance,Banks,nyse
+BERY,"Berry Global Group, Inc.",Consumer Non-Durables,Plastic Products,nyse
+BBY,"Best Buy Co., Inc.",Consumer Services,Consumer Electronics/Video Chains,nyse
+BEST,BEST Inc.,Transportation,Trucking Freight/Courier Services,nyse
+BHP,BHP Group Limited,Basic Industries,Precious Metals,nyse
+BBL,BHP Group Plc,Energy,Coal Mining,nyse
+BIG,"Big Lots, Inc.",Consumer Services,Department/Specialty Retail Stores,nyse
+BH,Biglari Holdings Inc.,Consumer Services,Restaurants,nyse
+BHVN,Biohaven Pharmaceutical Holding Company Ltd.,Health Care,Major Pharmaceuticals,nyse
+BIO,"Bio-Rad Laboratories, Inc.",Capital Goods,Biotechnology: Laboratory Analytical Instruments,nyse
+BITA,Bitauto Holdings Limited,Technology,EDP Services,nyse
+BJ,"BJ&#39;s Wholesale Club Holdings, Inc.",Consumer Services,Department/Specialty Retail Stores,nyse
+BKH,Black Hills Corporation,Public Utilities,Electric Utilities: Central,nyse
+BKI,"Black Knight, Inc.",Technology,Computer Software: Prepackaged Software,nyse
+BSM,"Black Stone Minerals, L.P.",Energy,Oil & Gas Production,nyse
+BB,BlackBerry Limited,Technology,Computer Software: Prepackaged Software,nyse
+BGIO,BlackRock 2022 Global Income Opportunity Trust,,,nyse
+BFZ,BlackRock California Municipal Income Trust,,,nyse
+CII,Blackrock Capital and Income Strategies Fund Inc,,,nyse
+BHK,Blackrock Core Bond Trust,,,nyse
+HYT,"Blackrock Corporate High Yield Fund, Inc.",,,nyse
+BTZ,BlackRock Credit Allocation Income Trust,,,nyse
+DSU,"Blackrock Debt Strategies Fund, Inc.",,,nyse
+BGR,BlackRock Energy and Resources Trust,,,nyse
+BDJ,Blackrock Enhanced Equity Dividend Trust,,,nyse
+EGF,"Blackrock Enhanced Government Fund, Inc",,,nyse
+FRA,Blackrock Floating Rate Income Strategies Fund Inc,,,nyse
+BFO,Blackrock Florida Municipal 2020 Term Trust,,,nyse
+BGT,Blackrock Global,,,nyse
+BOE,Blackrock Global,,,nyse
+BME,Blackrock Health Sciences Trust,,,nyse
 BAF,BlackRock Income Investment Quality Trust,,,nyse
+BKT,BlackRock Income Trust Inc. (The),,,nyse
+BGY,"BLACKROCK INTERNATIONAL, LTD.",,,nyse
+BKN,BlackRock Investment Quality Municipal Trust Inc. (The),,,nyse
 APRN,"Blue Apron Holdings, Inc.",Consumer Services,Catalog/Specialty Distribution,nyse
 BA,Boeing Company (The),Capital Goods,Aerospace,nyse
 BAH,Booz Allen Hamilton Holding Corporation,Consumer Services,Professional Services,nyse
