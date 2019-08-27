@@ -107,6 +107,7 @@ def get_sector(sector):
             temp = finance_series(temp, title=row.Symbol)
             k += 1
             print(len(temp))
+            print("k =", k)
             if len(temp) < 1000:
                 continue
             if dat is None:
