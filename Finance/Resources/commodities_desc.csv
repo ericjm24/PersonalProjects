@@ -1,0 +1,88 @@
+Commodity,Description,is_index
+PALLFNF,"All Commodity Price Index, 2016 = 100, includes both Fuel and Non-Fuel Price Indices",True
+PEXGALL,"Commodities for Index: All, excluding Gold, 2016 = 100",True
+PNFUEL,"Non-Fuel Price Index, 2016 = 100, includes Precious Metal, Food and Beverages and Industrial Inputs Price Indices",True
+PFANDB,"Food and Beverage Price Index, 2016 = 100, includes Food and Beverage Price Indices",True
+PFOOD,"Food Price Index, 2016 = 100, includes Cereal, Vegetable Oils, Meat, Seafood, Sugar, and Other Food (Apple (non-citrus fruit), Bananas, Chana (legumes), Fishmeal, Groundnuts, Milk (dairy), Tomato (veg)) Price Indices",True
+PBEVE,"Beverage Price Index, 2016 = 100, includes Coffee, Tea, and Cocoa",True
+PINDU,"Industrial Inputs Price Index, 2016 = 100, includes Agricultural Raw Materials and Base Metals Price Indices",True
+PAGRI,"Agriculture Price Index, 2016 = 100, includes Food and Beverages and Agriculture Raw Materials Price Indices",True
+PRAWM,"Agricultural Raw Materials Index, 2016 = 100, includes Timber, Cotton, Wool, Rubber, and Hides Price Indices",True
+PALLMETA,"All Metals Index, 2016 = 100: includes Metal Price Index (Base Metals) and Precious Metals Index",True
+PMETA,"Base Metals Price Index, 2016 = 100, includes Aluminum, Cobalt, Copper, Iron Ore, Lead, Molybdenum, Nickel, Tin, Uranium and Zinc Price Indices",True
+PPMETA,"Precious Metals Price Index, 2016 = 100, includes Gold, Silver, Palladium and Platinum Price Indices",True
+PEXGMETA,"All Metals EX GOLD Index, 2016 = 100: includes Metal Price Index (Base Metals) and ONLY Silver, Palladium, Platinum ",True
+PFERT,"Fertilizer Index, 2016 = 100, includes DAP, Potash, UREA",True
+PNRG,"Fuel (Energy) Index, 2016 = 100, includes Crude oil (petroleum), Natural Gas, Coal Price and Propane Indices",True
+POILAPSP,"Crude Oil (petroleum), Price index, 2016 = 100, simple average of three spot prices; Dated Brent, West Texas Intermediate, and the Dubai Fateh",True
+PNGAS,"Natural Gas Price Index, 2016 = 100, includes European, Japanese, and American Natural Gas Price Indices",True
+PCOAL,"Coal Price Index, 2016 = 100, includes Australian and South African Coal",True
+PALUM,"Aluminum, 99.5% minimum purity, LME spot price, CIF UK ports, US$ per metric ton",False
+PBANSOP,"Bananas, Central American and Ecuador, FOB U.S. Ports, US$ per metric ton",False
+PBARL,"Barley, Canadian no.1 Western Barley, spot price, US$ per metric ton",False
+PBEEF,"Beef, Australian and New Zealand 85% lean fores, CIF U.S. import price, US cents per pound",False
+PCOALAU,"Coal, Australian thermal coal, 12,000- btu/pound, less than 1% sulfur, 14% ash, FOB Newcastle/Port Kembla, US$ per metric ton",False
+PCOALSA_USD,"Coal, South African export price, US$ per metric ton",False
+PCOCO,"Cocoa beans, International Cocoa Organization cash price, CIF US and European ports, US$ per metric ton",False
+PCOFFOTM,"Coffee, Other Mild Arabicas, International Coffee Organization New York cash price, ex-dock New York, US cents per pound",False
+PCOFFROB,"Coffee, Robusta, International Coffee Organization New York cash price, ex-dock New York, US cents per pound",False
+PROIL,"Rapeseed oil, crude, fob Rotterdam, US$ per metric ton",False
+PCOPP,"Copper, grade A cathode, LME spot price, CIF European ports, US$ per metric ton",False
+PCOTTIND,"Cotton, Cotton Outlook 'A Index', Middling 1-3/32 inch staple, CIF Liverpool, US cents per pound",False
+PFSHMEAL,"Fishmeal, Peru Fish meal/pellets 65% protein, CIF, US$ per metric ton",False
+PGNUTS,"Groundnuts (peanuts), 40/50 (40 to 50 count per ounce), cif Argentina, US$ per metric ton",False
+PHIDE,"Hides, Heavy native steers, over 53 pounds, wholesale dealer's price, US, Chicago, fob Shipping Point, US cents per pound",False
+PIORECR,"China import Iron Ore Fines 62% FE spot (CFR Tianjin port), US dollars per metric ton",False
+PLAMB,"Lamb, frozen carcass Smithfield London, US cents per pound",False
+PLEAD,"Lead, 99.97% pure, LME spot price, CIF European Ports, US$ per metric ton",False
+PLOGORE,"Soft Logs, Average Export price from the U.S. for Douglas Fir, US$ per cubic meter",False
+PLOGSK,"Hard Logs, Best quality Malaysian meranti, import price Japan, US$ per cubic meter",False
+PMAIZMT,"Maize (corn), U.S. No.2 Yellow, FOB Gulf of Mexico, U.S. price, US$ per metric ton",False
+PNGASEU,"Natural Gas, Russian Natural Gas border price in Germany, US$ per Million Metric British Thermal Unit",False
+PNGASJP,"Natural Gas, Indonesian Liquefied Natural Gas in Japan, US$ per Million Metric British Thermal Unit",False
+PNGASUS,"Natural Gas, Natural Gas spot price at the Henry Hub terminal in Louisiana, US$ per Million Metric British Thermal Unit",False
+PNICK,"Nickel, melting grade, LME spot price, CIF European ports, US$ per metric ton",False
+POILAPSP,"Crude Oil (petroleum), Price index, 2016 = 100, simple average of three spot prices; Dated Brent, West Texas Intermediate, and the Dubai Fateh",False
+POILBRE,"Crude Oil (petroleum),  Dated Brent, light blend 38 API, fob U.K., US$ per barrel",False
+POILDUB,"Crude Oil (petroleum), Dubai Fateh Fateh 32 API, US$ per barrel",False
+POILWTI,"Crude Oil (petroleum), West Texas Intermediate 40 API, Midland Texas, US$ per barrel",False
+POLVOIL,"Olive Oil, extra virgin less than 1% free fatty acid, ex-tanker price U.K., US$ per metric ton",False
+PORANG,"Generic 1st 'JO' Future, USD/lb",False
+PPOIL,"Palm oil, Malaysia Palm Oil Futures (first contract forward) 4-5 percent FFA, US$ per metric ton",False
+PPORK,"Swine (pork), 51-52% lean Hogs, U.S. price, US cents per pound.",False
+PPOULT,"Poultry (chicken), Whole bird spot price, Ready-to-cook, whole, iced, Georgia docks, US cents per pound",False
+PRICENPQ,"Rice, 5 percent broken milled white rice, Thailand nominal price quote, US$ per metric ton",False
+PRUBB,"Rubber, Singapore Commodity Exchange, No. 3 Rubber Smoked Sheets, 1st contract, US cents per pound",False
+PSALM,"Fish (salmon), Farm Bred Norwegian Salmon, export price, US$ per kilogram",False
+PSAWMAL,"Hard Sawnwood, Dark Red Meranti, select and better quality, C&F U.K port, US$ per cubic meter",False
+PSAWORE,"Soft Sawnwood, average export price of Douglas Fir, U.S. Price, US$ per cubic meter",False
+PSHRI,Thailand Whiteleg Shrimp 70 Shrimps/Kg Spot Price,False
+PSMEA,"Soybean Meal, Chicago Soybean Meal Futures (first contract forward) Minimum 48 percent protein, US$ per metric ton",False
+PSOIL,"Soybean Oil, Chicago Soybean Oil Futures (first contract forward) exchange approved grades, US$ per metric ton",False
+PSOYB,"Soybeans, U.S. soybeans, Chicago Soybean futures contract (first contract forward) No. 2 yellow and par, US$ per metric ton",False
+PSUGAISA,"Sugar, Free Market, Coffee Sugar and Cocoa Exchange (CSCE) contract no.11 nearest future position, US cents per pound",False
+PSUGAUSA,"Sugar, U.S. import price, contract no.14 nearest futures position, US cents per pound (Footnote: No. 14 revised to No. 16)",False
+PSUNO,"Sunflower oil, Sunflower Oil, US export price from Gulf of Mexico, US$ per metric ton",False
+PTEA,"Tea, Mombasa, Kenya, Auction Price, US cents per kilogram, From July 1998,Kenya auctions, Best Pekoe Fannings. Prior, London auctions, c.i.f. U.K. warehouses",False
+PTIN,"Tin, standard grade, LME spot price, US$ per metric ton",False
+PURAN,"Uranium, NUEXCO, Restricted Price, Nuexco exchange spot, US$ per pound",False
+PWHEAMT,"Wheat, No.1 Hard Red Winter, ordinary protein, Kansas City, US$ per metric ton",False
+POATS,"Generic 1st 'O ' Future, USD/bushel",False
+PSORG,"Sorghum; U.S., Number 2 yellow, fob Gulf of Mexico, US cents per pound",False
+PWOOLC,"Wool, coarse, 23 micron, Australian Wool Exchange spot quote, US cents per kilogram",False
+PWOOLF,"Wool, fine, 19 micron, Australian Wool Exchange spot quote, US cents per kilogram",False
+PZINC,"Zinc, high grade 98% pure, US$ per metric ton",False
+PLMMODY,"Molybdenum, 57 to 63% purity contained in roasted molybdenum concentrate, LME spot price, USD/ton",False
+PCOBA,"Cobalt, U.S. cathodes, spot",False
+PGOLD,"Gold, Fixing Committee of the London Bullion Market Association, London 3 PM fixed price, US$ per troy ounce",False
+PSILVER,"Silver, London Bullion Market Association, USD/troy ounce",False
+PPALLA,"Palladium, LME spot price, USD/ troy ounce",False
+PPLAT,"Platinum, LME spot price, USD/troy ounce",False
+PPROPANE,North American Spot LPG Propane Price/Mont Belvieu LST,False
+PUREA,"US Gulf NOLA Urea Granular Spot Price, USD/ST",False
+PPOTASH,"Potassium Chloride (Muriate of Potash) Standard Grade: FOB Vancouver Spot Price, USD/metric tonne",False
+PDAP,"US Gulf NOLA DAP Export Spot Price per MT, USD/metric tonne",False
+PTOMATO,"Monthly average consumer prices in metropolitan France - Tomatoes (1 Kg), EUR",False
+PMILK,"USDA Class 3 (formerly known as Basic Formula) Milk Spot Price, USD/cwt",False
+PCHANA,"MCX India Chana Spot, INR/100 Kgs",False
+PAPPLE,"Monthly average consumer prices in metropolitan France - Apples (1 Kg), EUR",False

@@ -64,3 +64,75 @@ def plot(data, symbols="all", type='close', normalize = False, range = None, *ar
             plt.plot(data['date'], data[symbol], label = symbol, *args, **kwargs)
         else:
             plt.plot(data['date'], data[symbol]/data[symbol].mean(), label = symbol, *args, **kwargs)
+
+def read_sector(sector):
+    path = 'Data/' + sector.title().replace(" ","_") + '_data.csv'
+    try:
+        dat = pd.read_csv(path)
+        dat['date'] = dat['date'].astype('datetime64[ns]')
+        num_ticks = 0
+        for col in dat.columns:
+            if "Unnamed" in col:
+                dat.drop(columns=col, inplace=True)
+            elif col != "date" and col != "type":
+                num_ticks += 1
+        print("Found data on " + str(num_ticks) + " companies.")
+    except:
+        dat = None
+        print("No data found.")
+
+    return dat
+
+def get_sector(sector):
+    path = 'Data/' + sector.title().replace(" ", "_") + '_data.csv'
+    dat = read_sector(sector)
+    tickers = []
+    if dat is not None:
+        for col in dat.columns:
+            if col != "date" and col != "tyoe":
+                tickers.append(col)
+
+    k = 1
+    companies = pd.read_csv("Resources/companies.csv")
+    companies = companies.groupby('Sector').get_group(sector)
+    for row in companies.itertuples():
+        if k > 400:
+            break
+        if dat is not None:
+            if row.Symbol in tickers:
+                continue
+        print(row.Name + ' (' + row.Symbol +')')
+        try:
+            temp = get_pd(func='time series daily', symbol=row.Symbol, outputsize='full')
+            temp = finance_series(temp, title=row.Symbol)
+            k += 1
+            print(len(temp))
+            if len(temp) < 1000:
+                continue
+            if dat is None:
+                dat = temp
+            else:
+                dat = pd.merge(dat, temp, how='outer', on=['date', 'type'])
+
+            tickers.append(row.Symbol)
+            if not k % 10:
+                dat.to_csv(path)
+                print("**********\nSAVING\n**********")
+        except:
+            None
+
+        time.sleep(15)
+
+    dat.to_csv(path)
+
+def print_sectors(sector=None):
+    if sector is None:
+        print(pd.read_csv("Resources/companies.csv").groupby("Sector")["Symbol"].count())
+    else:
+        try:
+            sector = sector.replace("_"," ").title()
+            comps = pd.read_csv("Resources/companies.csv").groupby("Sector")
+            print(comps.get_group(sector).groupby("Industry")["Symbol"].count())
+        except:
+            print("Sector not found.")
+            print(pd.read_csv("Resources/companies.csv").groupby("Sector")["Symbol"].count())
