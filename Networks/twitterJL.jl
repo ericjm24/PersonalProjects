@@ -1,7 +1,7 @@
 indexFile = "data/twitter_index"
-friendsFile = "data/friends_small_indexed"
+friendsFile = "data/supersmall_test"
 followersFile = "data/followers_small_indexed"
-maxBuff = Int64(125000000)
+maxBuff = Int64(10)#Int64(125000000)
 
 struct twitterID
     id::UInt32
@@ -80,64 +80,49 @@ function sparseAdjacencyMultiplyMV(M::Vector{UInt32}, V::Vector)
     return out
 end
 
+function loadToChannel(c::Channel, inFileName::String)
+    file = open(inFileName)
+    while !eof(file)
+        put!(c, read(file, UInt32))
+    end
+    close(file)
+end
+function calculateOnChannel(c, V::Vector{Float64}, maxNums::Int64)
+    outVec = zeros(length(V))
+    bDefined = false
+    index=0::Int64
+    wait(c)
+    bContinue = true
+    itm = 0::Int64
+    kRead = 0
+    while kRead < maxNums
+        try
+            itm = take!(c)
+        catch
+            break
+        end
+        if bDefined == false && itm != 0
+            index = itm
+            bDefined = true
+        elseif itm == 0
+            bDefined = false
+        else
+            outVec[index] += V[itm]
+        end
+        kRead += 1
+    end
+    return outVec
+end
 function sparseAdjacencyMultiplyMV(inFileName::String, V::Vector{Float64})
     file = open(inFileName, "r")
     seekend(file)
-    totalUsers = Int64(position(file)/4)
-    usersLeft = totalUsers
-    println("Total length of file is " * string(Int64(position(file)/4), base=10))
-    seekstart(file)
-    out = Vector{typeof(V[1])}(undef, length(V))
-    buffer = Vector{UInt32}(undef, maxBuff)
-    for t = 1:length(V)
-        out[t]=0
-    end
-    k = 1
-    while true
-        if usersLeft < maxBuff
-            buffer = Vector{UInt32}(undef, usersLeft)
-        end
-        curPos = position(file)
-        read!(file, buffer)
-        usersLeft -= length(buffer)
-        lastUser = length(buffer)
-        while lastUser > 0
-            if buffer[lastUser] == 0
-                if usersLeft != 0
-                    curPos += lastUser*4
-                    seek(file, curPos)
-                end
-                break
-            else
-                lastUser -= 1
-            end
-        end
-        numUsers = 0
-        k = 2
-        ind = buffer[1]
-        temptot = 0.0
-        while k <= lastUser
-            if buffer[k] == 0
-                out[ind] = temptot
-                if k >= lastUser
-                    break
-                else
-                    k += 1
-                    ind = buffer[k]
-                    k += 1
-                    temptot = 0.0
-                end
-            else
-                temptot += V[buffer[k]]
-                k += 1
-            end
-        end
-        if usersLeft <= 0
-            break
-        end
-    end
+    numP = Int64(position(file)/4)
     close(file)
-    return out
+    c = Channel{UInt32}(500)
+    @async loadToChannel(c, inFileName)
+    outVec = fetch(@async calculateOnChannel(c, V, numP))
+    close(c)
+    return outVec
 end
 
 function normalizeV(inVector::Vector{Float64})
@@ -160,6 +145,28 @@ function randV(vecLength::Int64)
         out[k] = rand()
     end
     return normalizeV(out)
+end
+
+function userIndexToVector(userN::Int64, vecLength::Int64)
+    out = zeros(vecLength)
+    out[userN] = 1.0
+    return out
+end
+
+function userVectorToIndex(userVec::Vector)
+    temp = 0::typeof(userVec[1])
+    index = 0::Int64
+    for k = 1:length(userVec)
+        if userVec[k] > temp
+            temp = userVec[k]
+            index=k
+        end
+    end
+    if temp > 0
+        return index
+    else
+        return 0
+    end
 end
 
 function dotVV(vec1::Vector{Float64}, vec2::Vector{Float64})
