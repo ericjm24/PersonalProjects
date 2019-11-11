@@ -95,6 +95,7 @@ function calculateOnChannel(c, V::Vector{Float64}, maxNums::Int64)
     bContinue = true
     itm = 0::Int64
     kRead = 0
+    tempTot = 0.0
     while kRead < maxNums
         try
             itm = take!(c)
@@ -104,10 +105,12 @@ function calculateOnChannel(c, V::Vector{Float64}, maxNums::Int64)
         if bDefined == false && itm != 0
             index = itm
             bDefined = true
+            tempTot = 0.0
         elseif itm == 0
             bDefined = false
+            outVec[index] = tempTot
         else
-            outVec[index] += V[itm]
+            tempTot += V[itm]
         end
         kRead += 1
     end
@@ -121,6 +124,44 @@ function sparseAdjacencyMultiplyMV(inFileName::String, V::Vector{Float64})
     c = Channel{UInt32}(500)
     @async loadToChannel(c, inFileName)
     outVec = fetch(@async calculateOnChannel(c, V, numP))
+    close(c)
+    return outVec
+end
+
+function calculateOnChannelt(c, V::Vector{Float64}, maxNums::Int64)
+    outVec = zeros(length(V))
+    bDefined = false
+    index=0::Int64
+    wait(c)
+    bContinue = true
+    itm = 0::Int64
+    kRead = 0
+    while kRead < maxNums
+        try
+            itm = take!(c)
+        catch
+            break
+        end
+        if bDefined == false && itm != 0
+            index = itm
+            bDefined = true
+        elseif itm == 0
+            bDefined = false
+        else
+            outVec[itm] += V[index]
+        end
+        kRead += 1
+    end
+    return outVec
+end
+function sparseAdjacencyMultiplyMtV(inFileName::String, V::Vector{Float64})
+    file = open(inFileName, "r")
+    seekend(file)
+    numP = Int64(position(file)/4)
+    close(file)
+    c = Channel{UInt32}(500)
+    @async loadToChannel(c, inFileName)
+    outVec = fetch(@async calculateOnChannelt(c, V, numP))
     close(c)
     return outVec
 end
