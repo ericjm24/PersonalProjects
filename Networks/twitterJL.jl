@@ -1,7 +1,7 @@
 indexFile = "data/twitter_index"
 friendsFile = "data/supersmall_test"
 followersFile = "data/followers_small_indexed"
-maxBuff = Int64(10)#Int64(125000000)
+maxBuff = Int64(125000000)
 
 struct twitterID
     id::UInt32
@@ -230,6 +230,27 @@ function scalarMultSV(scalar, inVector::Vector{Float64})
     return inVector
 end
 
+function calculateErrorVV(vec1::Vector, vec2::Vector)
+    temp = 0::Float64
+    len = length(vec1)
+    if length(vec2) < len
+        len = length(vec2)
+    end
+    for k = 1:len
+        t = vec1[k] - vec2[k]
+        temp += t*t
+    end
+    return sqrt(temp/len)
+end
+
+function magnitudeSquaredV(vec::Vector)
+    temp = 0
+    for k in 1:length(vec)
+        temp += vec[1]*vec[1]
+    end
+    return temp
+end
+
 function addVV(alpha, VectorAlpha::Vector{Float64}, beta, VectorBeta::Vector{Float64})
     if length(VectorAlpha) == length(VectorBeta)
         VectorAlpha = copy(VectorAlpha)
@@ -260,6 +281,22 @@ function addVV(alpha, VectorAlpha::Vector{Float64}, beta, VectorBeta::Vector{Flo
         end
         return VectorAlpha
     end
+end
+
+function simpleAddVV(VectorAlpha::Vector{Float64}, VectorBeta::Vector{Float64})
+    out = copy(VectorAlpha)
+    for k in 1:length(VectorAlpha)
+        out[k] += VectorBeta[k]
+    end
+    return out
+end
+
+function simpleSubtractVV(VectorAlpha::Vector{Float64}, VectorBeta::Vector{Float64})
+    out = copy(VectorAlpha)
+    for k in 1:length(VectorAlpha)
+        out[k] -= VectorBeta[k]
+    end
+    return out
 end
 
 function distanceVV(vec1::Vector{Float64}, vec2::Vector{Float64}, align)
@@ -388,6 +425,157 @@ function calculateInfluenceVector(inVector::Vector{Float64}, adjacency::Vector{U
     end
     return out
 end
+
+
+function calculateTransitionOnChannel(c, V::Vector{Float64}, laziness::Float64, maxNums::Int64)
+    outVec = zeros(length(V))
+    bDefined = false
+    index=0::Int64
+    dim = 0::Int64
+    wait(c)
+    bContinue = true
+    itm = 0::Int64
+    kRead = 0
+    tempTot = 0.0
+    while kRead < maxNums
+        try
+            itm = take!(c)
+        catch
+            break
+        end
+        if bDefined == false && itm != 0
+            index = itm
+            bDefined = true
+            tempTot = 0.0
+            dim = 0
+        elseif itm == 0
+            bDefined = false
+            if dim != 0
+                outVec[index] = (1-laziness)*tempTot/dim
+                outVec[index] += laziness*V[index]
+            end
+        else
+            tempTot += V[itm]
+            dim += 1
+        end
+        kRead += 1
+    end
+    return outVec
+end
+
+function sparseTransitionMultiplyMV(inFileName::String, V::Vector{Float64}, laziness::Float64)
+    file = open(inFileName, "r")
+    seekend(file)
+    numP = Int64(position(file)/4)
+    close(file)
+    c = Channel{UInt32}(500)
+    @async loadToChannel(c, inFileName)
+    outVec = fetch(@async calculateTransitionOnChannel(c,V, laziness, numP))
+    close(c)
+    return outVec
+end
+
+function sparseTransitionMultiplyMV(M::Vector{UInt32}, V::Vector{Float64}, laziness::Float64)
+    out = Vector{typeof(V[1])}(undef, length(V))
+    for t = 1:length(out)
+        out[t]=0
+    end
+    ind = M[1]
+    k = 2
+    dim = 0
+    temp = 0.0
+    L = length(M)
+    while k <= L
+        a = M[k]
+        if a != 0
+            temp += V[a]
+            dim += 1
+            k += 1
+        else
+            if dim != 0
+                out[ind] = (1-laziness)*temp/dim
+                out[ind] += laziness*V[ind]
+            end
+            k += 1
+            if k > L
+                break
+            end
+            temp = 0
+            dim = 0
+            ind = M[k]
+            k += 1
+        end
+    end
+    return out
+end
+
+function sparseTransitionPowerIterate(adjacency::Vector{UInt32}, vecLength::Int64, laziness::Float64, epsilon)
+    out = randV(vecLength)
+    epsilon = abs(epsilon)
+    e = 10.0*epsilon
+    oldL = 10000.0
+    lambda = 0.0
+    while e > epsilon
+        old = out
+        out = sparseTransitionMultiplyMV(adjacency, old, laziness)
+        lambda = dotVV(old, out)
+        out = normalizeV(out)
+        e = distanceVV(out, old, true)
+        oldL = lambda
+    end
+    return out, lambda
+end
+
+function sparseTransitionPowerIterate_wGS_step(adjacency::Vector{UInt32}, GSArray::Array{Float64, 2}, vecLength::Int64, laziness::Float64, epsilon)
+    out = randV(vecLength)
+    epsilon = abs(epsilon)
+    e = 10.0*epsilon
+    oldL = 10000.0
+    lambda = 0.0
+    while e > epsilon
+        old = out
+        out = sparseTransitionMultiplyMV(adjacency, old, laziness)
+        out = orthogonalizeV(out, GSArray)
+        lambda = dotVV(old, out)
+        out = normalizeV(out)
+        e = distanceVV(out, old, true)
+        oldL = lambda
+    end
+    return out, lambda
+end
+
+function sparseTransitionPowerIterate_wGS(adjacency::Vector{UInt32}, vecLength::Int64, numVecs::Int64, laziness::Float64, epsilon)
+    if numVecs<=1
+        return sparseTransitionPowerIterate(adjacency, vecLength, epsilon)
+    end
+    out = Array{Float64,2}(undef, vecLength, numVecs)
+    lambda = Vector{Float64}(undef, numVecs)
+    out[:,1], lambda[1] = sparseTransitionPowerIterate(adjacency, vecLength, laziness, epsilon)
+    println("1:")
+    println(lambda[1])
+    for k = 2:numVecs
+        out[:,k], lambda[k] = sparseTransitionPowerIterate_wGS_step(adjacency, out[:,1:k-1], vecLength, laziness, epsilon)
+        println(string(k, base=10)*": ")
+        println(lambda[k])
+    end
+    return out, lambda
+end
+
+function calculateInfluenceVector_v2(adjacency, inVector::Vector, laziness::Float64, conductivity::Float64, epsilon::Float64, maxIter)
+    out = sparseAdjacencyMultiplyMV(adjacency, copy(inVector))
+    temp = scalarMultSV(conductivity, sparseTransitionMultiplyMV(adjacency, out, laziness))
+    len = length(out)
+    error = sqrt(dotVV(temp, temp)/len)
+    k = 0
+    while error > epsilon && k < maxIter
+        out = simpleAddVV(out, temp)
+        temp = scalarMultSV(conductivity, sparseTransitionMultiplyMV(adjacency, temp, laziness))
+        error = sqrt(magnitudeSquaredV(temp)/len)
+        k += 1
+    end
+    return out
+end
+
 
 function findUser(id::UInt32, userArray::Vector{twitterID})
     kStart = 1
