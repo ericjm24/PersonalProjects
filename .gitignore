@@ -110,3 +110,4 @@ venv.bak/
 *_data.*
 *.sqlite
 data/
+*.jld
