@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\begin{document}
+
+\section*{Workspace}
+
+Start with a weighted directed graph $\mathbf{G}$ containing vertices $v \in \mathbf{V}$ and edges $e \in \mathbf{E}$. \\
+
+We start by defining a weight function for the vertices $F: \mathbf{V} \rightarrow \mathcal{R}$ with a corresponding weight value $f_i = F(v_i)$. 
+Similarly we add a weight for each edge given by the weight function $W: \mathbf{E} \rightarrow \mathcal{R}$ with corresponding weights $w_i = W(e_i)$. 
+Finally, define an activation function on each vertex taking an affine parameter $\lambda$ as $\mu\left[v\right]: \mathcal{R} x \mathcal{R} \rightarrow \mathcal{R}$. 
+For simplicity let $\mu_i(\lambda) := \mu[v_i](\lambda)$.\\
+
+Now we can define the potential energy of the system by:
+\begin{equation}
+\mathcal{E} = \sum_{i}\left[f_i - \mu_i(\sum_jw_jf_j, \lambda)\right]^2
+\end{equation}
+
+\end{document}
