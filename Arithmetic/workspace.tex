@@ -5,7 +5,7 @@
 
 \section*{Workspace}
 
-Start with a weighted directed graph $\mathbf{G}$ containing vertices $v \in \mathbf{V}$ and edges $e \in \mathbf{E}$. \\
+Start with a weighted directed graph $\mathbf{G}$ containing $n$ vertices $v \in \mathbf{V}$ with and $m$ edges $e \in \mathbf{E}$. \\
 
 We start by defining a weight function for the vertices $F: \mathbf{V} \rightarrow \mathcal{R}$ with a corresponding weight value $f_i = F(v_i)$. 
 Similarly we add a weight for each edge given by the weight function $W: \mathbf{E} \rightarrow \mathcal{R}$ with corresponding weights $w_i = W(e_i)$. 
@@ -17,4 +17,26 @@ Now we can define the potential energy of the system by:
 \mathcal{E} = \sum_{i}\left[f_i - \mu_i(\sum_jw_jf_j, \lambda)\right]^2
 \end{equation}
 
+I am going to switch to Einstein notation, since I think it will really help make things easier. Values of weights will be represented with superscript.
+We can then write the potential energy of the system using:
+
+\begin{equation}
+    \mathcal{E} = \sum_{i}\left[f_i - \mu_i(w^jf_j, \lambda)\right]^2
+\end{equation}
+
+One idea is to direct-sum the spaces of nodes and edges.
+Each edge would also be a node, and the connection matrix becomes a matrix of 1's and 0's.
+This allows writing the potential energy using:
+
+\begin{equation}
+    \mathcal{E} = \sum_{i}\left[f_i - \mu_i(\Delta^{jk}w_jf_k, \lambda)\right]^2
+\end{equation}
+
+Now we define a new vector $\mathbf{g}$ by combining $\mathbf{f}$ and $\mathbf{w}$:
+
+\begin{eqnarray}
+    g_i &=& f_i | i \in \{1...,n\} \\
+    g_i &=& w_{i-n} | i \in \{n+1...,n+m\} \\
+    \Delta^{ij} &\in & \{0, 1\}
+\end{eqnarray}
 \end{document}
