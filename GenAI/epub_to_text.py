@@ -33,5 +33,5 @@ if __name__ == '__main__':
     dir = '/home/ericjm24/fimarch/epub'
     target_dir = '/home/ericjm24/fimarch/txt'
     args = make_dir_to_text(dir, target_dir)
-    with Pool(8) as p:
+    with Pool(30) as p:
         p.map(ebook_to_text, args)
